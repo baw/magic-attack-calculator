@@ -17,6 +17,13 @@ function onChangeEventCreater(cb: (value: boolean | number | string) => void) {
   };
 };
 
+function onChangeUpdaterCreator(key: string) {
+    return function (value: boolean | number | string) {
+      magicAttackCalculator[key] = value;
+    }
+}
+
 export {
-  onChangeEventCreater
+  onChangeEventCreater,
+  onChangeUpdaterCreator
 }
