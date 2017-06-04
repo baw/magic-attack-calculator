@@ -18,10 +18,10 @@ class NumberTextBoxWithLabel extends Component {
 
   render() {
     return (
-      <div className="text-bow-with-label">
-        <label>{this.props.label}</label>
-        <input type="number" min={this.props.min} max={this.props.max} onChange={ onChangeEventCreater(this.props.onChange) }/>
-      </div>
+      <tr className="text-bow-with-label">
+        <td><label>{this.props.label}</label></td>
+        <td><input type="number" min={this.props.min} max={this.props.max} onChange={ onChangeEventCreater(this.props.onChange) }/></td>
+      </tr>
     );
   }
 }

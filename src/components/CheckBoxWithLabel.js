@@ -11,10 +11,10 @@ class CheckBoxWithLabel extends Component {
 
   render() {
     return (
-      <div>
-        <label>{ this.props.label }</label>
-        <input type="checkbox" onChange={ onChangeEventCreater(this.props.onChange) }/>
-      </div>
+      <tr>
+        <td><label>{ this.props.label }</label></td>
+        <td><input type="checkbox" onChange={ onChangeEventCreater(this.props.onChange) }/></td>
+      </tr>
     )
   }
 }
