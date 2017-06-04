@@ -1,6 +1,6 @@
 /* @flow */
 
-import magicAttackCalculator from './MagicAttackCalculator';
+import { magicAttackCalculator } from './MagicAttackCalculator';
 
 function onChangeEventCreater(cb: (value: boolean | number | string) => void) {
   return function onChange(event: SyntheticEvent) {

@@ -1,5 +1,7 @@
 /* @flow */
 
+type DamageUnit = { low: number, high: number };
+
 class MagicAttackCalculator {
   int: number;
   baseAttack: number;
@@ -9,7 +11,7 @@ class MagicAttackCalculator {
   elementalWeapon: boolean;
   elementAmplification: boolean;
 
-  calculate() {
+  calculate(): Damage {
     //(Magic²/1000 + Magic * Mastery * 0.9)/30 + INT/200) * Basic Attack * Amp * Elemental Wand Bonus
     //=(magicAttack^2/1000+magicAttack*(mastery/100)*0.9)/30+int/200)*baseAttack*1.35*1.25
     //=((magicAttack^2/1000+magicAttack)/30+int/200)*basicAttack*1.35*1.25
@@ -29,12 +31,16 @@ class MagicAttackCalculator {
     }
 
     return {
-      normal: { low, high },
-      strong: { low: low * 1.5, high: high * 1.5 },
-      weak: { low: low * 0.5, high: high * 0.5 }
+      normal: { low: parseInt(low, 10), high: parseInt(high, 10) },
+      strong: { low: parseInt(low * 1.5, 10), high: parseInt(high * 1.5, 10) },
+      weak: { low: parseInt(low * 0.5, 10), high: parseInt(high * 0.5, 10) }
     }
   }
 }
 
-
-export default new MagicAttackCalculator();
+export type Damage = {
+  normal: DamageUnit,
+  strong: DamageUnit,
+  weak: DamageUnit
+};
+export let magicAttackCalculator = new MagicAttackCalculator();
