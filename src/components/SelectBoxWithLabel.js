@@ -17,10 +17,11 @@ class SelectBoxWithLabel extends Component {
   }
 
   render() {
+    let id = this.props.label;
     return (
       <tr>
-        <td><label>{ this.props.label }</label></td>
-        <td><select defaultValue={ this.props.optionValues[ this.props.defualtOptionIndex ] } onChange={ onChangeEventCreater(this.props.onChange) }>
+        <td><label htmlFor={ id }>{ this.props.label }</label></td>
+        <td><select defaultValue={ this.props.optionValues[ this.props.defualtOptionIndex ] } id={ id } onChange={ onChangeEventCreater(this.props.onChange) }>
           {this.props.optionValues.map(function (name: string, index: number) {
             return <option key={name} value={name}>{name}</option>;
           })}

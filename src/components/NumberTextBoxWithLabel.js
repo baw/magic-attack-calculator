@@ -17,10 +17,11 @@ class NumberTextBoxWithLabel extends Component {
   }
 
   render() {
+    let id = this.props.label;
     return (
       <tr className="text-bow-with-label">
-        <td><label>{this.props.label}</label></td>
-        <td><input type="number" min={this.props.min} max={this.props.max} onChange={ onChangeEventCreater(this.props.onChange) }/></td>
+        <td><label htmlFor={ id }>{this.props.label}</label></td>
+        <td><input id={ id } min={this.props.min} max={this.props.max} onChange={ onChangeEventCreater(this.props.onChange) } type="number" /></td>
       </tr>
     );
   }
